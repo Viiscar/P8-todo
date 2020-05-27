@@ -121,11 +121,11 @@
 	Controller.prototype.editItemSave = function (id, title) {
 		var self = this;
 
-		while (title[0] === " ") {
+		if (title[0] === " ") {
 			title = title.slice(1);
 		}
 
-		while (title[title.length-1] === " ") {
+		if (title[title.length-1] === " ") {
 			title = title.slice(0, -1);
 		}
 
