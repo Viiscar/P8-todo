@@ -176,8 +176,9 @@ describe('controller', function () {
 			// TODO: write test
 			var todo = {id: 42, title: 'my todo', completed: false}
 			setUpModel([todo]);
-
 			subject.setView('');
+
+			view.trigger('itemToggle', {id: 42, completed: false});
 
 			expect(view.render).toHaveBeenCalledWith('toggleAll', true);
 
@@ -185,10 +186,14 @@ describe('controller', function () {
 
 		it('should update the view', function () {
 			// TODO: write test
-			// save, update
-			//	Model.prototype.update = function (id, data, callback) {
-			//this.storage.save(data, callback, id);
-			// };
+			var todo = {id: 42, title: 'my todo', completed: true};
+			setUpModel([todo]);
+			subject.setView('');
+
+			view.trigger('itemToggle', {id: 42, completed: false});
+
+			expect(view.render).toHaveBeenCalledWith('toggleAll', {id: 42, completed: false});
+
 		});
 	});
 
