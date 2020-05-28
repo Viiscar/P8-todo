@@ -213,8 +213,6 @@ describe('controller', function () {
 				}]);
 			});
 
-			view.trigger('newTodo', 'a new todo');
-
 			expect(model.update).toHaveBeenCalledWith({title: 'a new todo'},{completed: false}, jasmine.any(Function));
 		});
 
@@ -256,6 +254,14 @@ describe('controller', function () {
 	describe('element removal', function () {
 		it('should remove an entry from the model', function () {
 			// TODO: write test
+			var todo = {id: 42, title: 'my todo', completed: true};
+			setUpModel([todo]);
+
+			subject.setView('');
+			view.trigger('itemRemove', {id: 42});
+
+			expect(model.remove).toHaveBeenCalledWith(42, jasmine.any(Function));
+
 		});
 
 		it('should remove an entry from the view', function () {
