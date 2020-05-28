@@ -153,19 +153,45 @@ describe('controller', function () {
 
 	it('should highlight "All" filter by default', function () {
 		// TODO: write test
+		setUpModel([]);
+
+		subject.setView('load');
+
+		expect(view.render).toHaveBeenCalledWith('setFilter', '');
+
 	});
 
 	it('should highlight "Active" filter when switching to active view', function () {
 		// TODO: write test
+		setUpModel([]);
+
+		subject.setView('#/active');
+
+		expect(view.render).toHaveBeenCalledWith('setFilter', 'active');
+
 	});
 
 	describe('toggle all', function () {
 		it('should toggle all todos to completed', function () {
 			// TODO: write test
+			//mettre tous les trucs a faire en completed
+
+			// toggleAll: function () {
+			// 	self.$toggleAll.checked = parameter.checked;
+			// },
+
+			//else if (event === 'toggleAll') {
+			//$on(self.$toggleAll, 'click', function () {
+			//	handler({completed: this.checked});
+			//});
 		});
 
 		it('should update the view', function () {
 			// TODO: write test
+			// save, update
+			//	Model.prototype.update = function (id, data, callback) {
+			//this.storage.save(data, callback, id);
+			// };
 		});
 	});
 
