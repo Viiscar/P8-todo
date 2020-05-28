@@ -213,7 +213,9 @@ describe('controller', function () {
 				}]);
 			});
 
-			expect(model.update).toHaveBeenCalledWith({title: 'a new todo'},{completed: false}, jasmine.any(Function));
+			view.trigger('newTodo', 'a new todo');
+
+			expect(model.create).toHaveBeenCalledWith('a new todo', jasmine.any(Function));
 		});
 
 		it('should add a new todo to the view', function () {
