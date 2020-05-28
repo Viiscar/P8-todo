@@ -174,16 +174,13 @@ describe('controller', function () {
 	describe('toggle all', function () {
 		it('should toggle all todos to completed', function () {
 			// TODO: write test
-			//mettre tous les trucs a faire en completed
+			var todo = {id: 42, title: 'my todo', completed: false}
+			setUpModel([todo]);
 
-			// toggleAll: function () {
-			// 	self.$toggleAll.checked = parameter.checked;
-			// },
+			subject.setView('');
 
-			//else if (event === 'toggleAll') {
-			//$on(self.$toggleAll, 'click', function () {
-			//	handler({completed: this.checked});
-			//});
+			expect(view.render).toHaveBeenCalledWith('toggleAll', true);
+
 		});
 
 		it('should update the view', function () {
