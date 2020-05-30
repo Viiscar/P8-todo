@@ -190,15 +190,16 @@ describe('controller', function () {
 
 		it('should update the view', function () {
 			// TODO: write test
-			// var todo = {id: 42, title: 'my todo', completed: true};
-			// setUpModel([todo]);
-			// subject.setView('');
+			var todos = [{id: 42, title: 'my todo', completed: false},
+			{id: 43, title: 'my 2nd todo', completed: false}
+			]
+			setUpModel(todos);
 
-			// view.trigger('itemToggle', {id: 42, completed: false});
+			subject.setView('');
 
-			// expect(view.render).toHaveBeenCalledWith('toggleAll', {
-			// 	checked: true
-			// });
+			view.trigger('toggleAll', {completed: true});
+
+			expect(view.render).toHaveBeenCalledWith('updateElementCount', 2);
 
 		});
 	});

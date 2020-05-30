@@ -251,7 +251,7 @@
 	 */
 	Controller.prototype._filter = function (force) {
 		var activeRoute = this._activeRoute.charAt(0).toUpperCase() + this._activeRoute.substr(1);
-		console.log(this._activeRoute);
+		
 		// Update the elements on the page, which change with each completed todo
 		this._updateCount();
 
