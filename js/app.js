@@ -20,7 +20,8 @@
 	var todo = new Todo('todos-vanillajs');
 
 	/**
-	 * Routing the url to #/, #active or #completed
+	 * Routing the url
+	 * @returns {string}  #/, #active or #completed
 	 */
 	function setView() {
 		todo.controller.setView(document.location.hash);
