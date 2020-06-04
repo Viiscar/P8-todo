@@ -14,9 +14,14 @@
 		this.view = new app.View(this.template);
 		this.controller = new app.Controller(this.model, this.view);
 	}
-
+	/**
+	 * Creating a new Todo
+	 */
 	var todo = new Todo('todos-vanillajs');
 
+	/**
+	 * Routing the url to #/, #active or #completed
+	 */
 	function setView() {
 		todo.controller.setView(document.location.hash);
 	}
