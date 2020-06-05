@@ -5,7 +5,8 @@
 	 * Creates a new Model instance and hooks up the storage.
 	 *
 	 * @constructor
-	 * @param {object} storage A reference to the client side storage class
+	 * @param {object} storage - A reference to the client side storage class
+	 * From {@link Store}
 	 */
 	function Model(storage) {
 		this.storage = storage;
@@ -14,8 +15,8 @@
 	/**
 	 * Creates a new todo model
 	 *
-	 * @param {string} [title] The title of the task
-	 * @param {function} [callback] The callback to fire after the model is created
+	 * @param {string} [title] - The title of the task
+	 * @param {function} [callback] - The callback to fire after the model is created
 	 */
 	Model.prototype.create = function (title, callback) {
 		title = title || '';

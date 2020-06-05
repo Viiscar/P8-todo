@@ -6,6 +6,7 @@
 	 * Creates a new client side storage object and will create an empty
 	 * collection if no collection already exists.
 	 *
+	 * @constructor
 	 * @param {string} name - The name of our DB we want to use
 	 * @param {function} callback - Our fake DB uses callbacks because in real life you probably would be making AJAX calls
 	 */
