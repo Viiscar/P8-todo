@@ -6,9 +6,8 @@
 	 * Creates a new client side storage object and will create an empty
 	 * collection if no collection already exists.
 	 *
-	 * @param {string} name The name of our DB we want to use
-	 * @param {function} callback Our fake DB uses callbacks because in
-	 * real life you probably would be making AJAX calls
+	 * @param {string} name - The name of our DB we want to use
+	 * @param {function} callback - Our fake DB uses callbacks because in real life you probably would be making AJAX calls
 	 */
 	function Store(name, callback) {
 		callback = callback || function () {};
@@ -29,14 +28,14 @@
 	/**
 	 * Finds items based on a query given as a JS object
 	 *
-	 * @param {object} query The query to match against (i.e. {foo: 'bar'})
-	 * @param {function} callback	 The callback to fire when the query has
+	 * @param {object} query - The query to match against (i.e. {foo: 'bar'})
+	 * @param {function} callback - The callback to fire when the query has
 	 * completed running
 	 *
 	 * @example
 	 * db.find({foo: 'bar', hello: 'world'}, function (data) {
-	 *	 // data will return any items that have foo: bar and
-	 *	 // hello: world in their properties
+	 *	 data will return any items that have foo: bar and
+	 *	 hello: world in their properties
 	 * });
 	 */
 	Store.prototype.find = function (query, callback) {
@@ -70,17 +69,19 @@
 	 * Will save the given data to the DB. If no item exists it will create a new
 	 * item, otherwise it'll simply update an existing item's properties
 	 *
-	 * @param {object} updateData The data to save back into the DB
-	 * @param {function} callback The callback to fire after saving
-	 * @param {number} id An optional param to enter an ID of an item to update
+	 * @param {object} updateData - The data to save back into the DB
+	 * @param {function} callback - The callback to fire after saving
+	 * @param {number} id - An optional param to enter an ID of an item to update
 	 */
 	Store.prototype.save = function (updateData, callback, id) {
 		var data = JSON.parse(localStorage[this._dbName]);
 		var todos = data.todos;
 
 		callback = callback || function () {};
-
-		// If an ID was actually given, find the item and update each property
+		/**
+		 * If an ID was actually given, find the item and update each property
+		 * @param {number} id - ID of the item to update
+		 */
 		if (id) {
 			for (var i = 0; i < todos.length; i++) {
 				if (todos[i].id === id) {
@@ -94,11 +95,17 @@
 			localStorage[this._dbName] = JSON.stringify(data);
 			callback.call(this, todos);
 		} else {
-
-    		// Generate and assign an ID
+			/**
+			 * Generate and assign an ID 
+			 * @returns {number} - The number of milliseconds elapsed since January 1, 1970
+			 * @see https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Date/now
+			 * @example - 1591369353186
+			 */
 			updateData.id = Date.now();
 			
-			//Add the ID to the list
+			/**
+			 * Add the ID to the list
+			 */
 			todos.push(updateData);
 			localStorage[this._dbName] = JSON.stringify(data);
 			callback.call(this, [updateData]);

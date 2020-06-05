@@ -9,7 +9,6 @@
 	 */
 	window.qs = function (selector, scope) {
 		return (scope || document).querySelector(selector);
-		console.log(indexOf(querySelector()));
 	};
 
 	/**
@@ -26,7 +25,7 @@
 	 * @param {object} target - The targeted element
 	 * @param {string} type - The event type (change, dblclick, blur, keypress, keyup, click, load, hashchange)
 	 * @param {function} callback - Callback function
-	 * @param {boolean} useCapture - Will blur or focus the targeted element
+	 * @param {boolean} useCapture - Will blur or focus the targeted element (optional)
 	 * Used in {@link View} and {@link App}
 	 */
 	window.$on = function (target, type, callback, useCapture) {
