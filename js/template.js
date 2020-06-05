@@ -2,6 +2,10 @@
 (function (window) {
 	'use strict';
 
+	/**
+	 * HTML escapes list
+	 * @type {object}
+	 */
 	var htmlEscapes = {
 		'&': '&amp;',
 		'<': '&lt;',
@@ -11,13 +15,32 @@
 		'`': '&#x60;'
 	};
 
+	/**
+	 * Escapes characters
+	 * @param {string} chr -
+	 * @returns {string} - The escaped character  
+	 */
 	var escapeHtmlChar = function (chr) {
 		return htmlEscapes[chr];
 	};
 
+	/**
+	 * RegExp
+	 * @type {object}
+	 */
 	var reUnescapedHtml = /[&<>"'`]/g;
+	
+	/**
+	 * Returns the text of the RegExp
+	 * @type {object}
+	 */
 	var reHasUnescapedHtml = new RegExp(reUnescapedHtml.source);
 
+	/**
+	 * Escapes string if there is a match
+	 * @param {string} string - String to match
+	 * @returns {string} - Escaped string, if there is a match
+	 */
 	var escape = function (string) {
 		return (string && reHasUnescapedHtml.test(string))
 			? string.replace(reUnescapedHtml, escapeHtmlChar)
@@ -26,7 +49,6 @@
 
 	/**
 	 * Sets up defaults for all the Template methods such as a default template
-	 *
 	 * @constructor
 	 */
 	function Template() {
@@ -42,14 +64,8 @@
 
 	/**
 	 * Creates an <li> HTML string and returns it for placement in your app.
-	 *
-	 * NOTE: In real life you should be using a templating engine such as Mustache
-	 * or Handlebars, however, this is a vanilla JS example.
-	 *
-	 * @param {object} data The object containing keys you want to find in the
-	 *                      template to replace.
+	 * @param {object} data The object containing keys you want to find in the template to replace.
 	 * @returns {string} HTML String of an <li> element
-	 *
 	 * @example
 	 * view.show({
 	 *	id: 1,
@@ -84,7 +100,6 @@
 
 	/**
 	 * Displays a counter of how many to dos are left to complete
-	 *
 	 * @param {number} activeTodos The number of active todos.
 	 * @returns {string} String containing the count
 	 */
@@ -96,8 +111,7 @@
 
 	/**
 	 * Updates the text within the "Clear completed" button
-	 *
-	 * @param  {[type]} completedTodos The number of completed todos.
+	 * @param  {number} completedTodos The number of completed todos.
 	 * @returns {string} String containing the count
 	 */
 	Template.prototype.clearCompletedButton = function (completedTodos) {
