@@ -237,13 +237,16 @@
 	 */
 	Controller.prototype._filter = function (force) {
 		var activeRoute = this._activeRoute.charAt(0).toUpperCase() + this._activeRoute.substr(1);
-		
-		// Update the elements on the page, which change with each completed todo
+		/**
+		 * Update the elements on the page, which change with each completed todo
+		 */
 		this._updateCount();
-
-		// If the last active route isn't "All", or we're switching routes, we
-		// re-create the todo item elements, calling:
-		//   this.show[All|Active|Completed]();
+		/**
+		 * If the last active route isn't "All", or we're switching routes, we
+		 * re-create the todo item elements, calling:
+		 * this.show[All|Active|Completed]();
+		 */
+		
 		if (force || this._lastActiveRoute !== 'All' || this._lastActiveRoute !== activeRoute) {
 			this['show' + activeRoute]();
 		}
@@ -253,11 +256,14 @@
 
 	/**
 	 * Simply updates the filter nav's selected states
+	 * @param {string} currentPage - Current page hash ('' | 'active' | 'completed')
 	 */
 	Controller.prototype._updateFilterState = function (currentPage) {
-		console.log(typeof(currentPage), currentPage);
-		// Store a reference to the active route, allowing us to re-filter todo
-		// items as they are marked complete or incomplete.
+		/**
+		 * Store a reference to the active route, 
+		 * allowing us to re-filter items as they are marked complete or incomplete.
+		 */
+		
 		this._activeRoute = currentPage;
 
 		if (currentPage === '') {
@@ -268,8 +274,9 @@
 
 		this.view.render('setFilter', currentPage);
 	};
-
-	// Export to window
+	/**
+	 * Export to window
+	 */ 
 	window.app = window.app || {};
 	window.app.Controller = Controller;
 })(window);

@@ -4,8 +4,8 @@
 
 	/**
 	 * Sets up a brand new Todo list.
-	 *
-	 * @param {string} name The name of your new to do list.
+	 * @constructor
+	 * @param {string} name - The name of the new todo list.
 	 */
 	function Todo(name) {
 		this.storage = new app.Store(name);
@@ -14,18 +14,22 @@
 		this.view = new app.View(this.template);
 		this.controller = new app.Controller(this.model, this.view);
 	}
+
 	/**
 	 * Creating a new Todo
 	 */
 	var todo = new Todo('todos-vanillajs');
 
 	/**
-	 * Routing the url
-	 * @returns {string}  #/, #active or #completed
+	 * Routing the url to ''|| active || completed
 	 */
 	function setView() {
 		todo.controller.setView(document.location.hash);
 	}
+	/**
+	 * addEventListener
+	 * Calls setView on load and on route changes
+	 */
 	$on(window, 'load', setView);
 	$on(window, 'hashchange', setView);
 })();
