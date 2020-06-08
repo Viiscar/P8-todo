@@ -75,8 +75,9 @@
 		}
 
 		listItem.className = completed ? 'completed' : '';
-
-		// In case it was toggled from an event and not by clicking the checkbox
+		/**
+		 * In case it was toggled from an event and not by clicking the checkbox
+		 */
 		qs('input', listItem).checked = completed;
 	};
 	
@@ -230,8 +231,9 @@
 
 		$delegate(self.$todoList, 'li .edit', 'keypress', function (event) {
 			if (event.keyCode === self.ENTER_KEY) {
-				// Remove the cursor from the input when you hit enter just like if it
-				// were a real form
+				/**
+				 * Remove the cursor from the input when you hit enter just like if it were a real form
+				 */
 				this.blur();
 			}
 		});
@@ -300,8 +302,10 @@
 			self._bindItemEditCancel(handler);
 		}
 	};
-
-	// Export to window
+	
+	/**
+	 * Export to window
+	 */ 
 	window.app = window.app || {};
 	window.app.View = View;
 }(window));
