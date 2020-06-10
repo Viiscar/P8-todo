@@ -1,9 +1,12 @@
+/** * @class Controller */ 
 (function (window) {
 	'use strict';
 
 	/**
 	 * Takes a model and view and acts as the controller between them
 	 * Links {@link Model} and {@link View}
+	 * @name #init 
+	 * @memberOf Controller
 	 * @constructor
 	 * @param {object} model The model instance
 	 * @param {object} view The view instance
@@ -48,6 +51,7 @@
 
 	/**
 	 * Loads and initialises {@link View}
+	 * @memberOf Controller
 	 * @param {string} locationHash - Current page hash ('' | 'active' | 'completed')
 	 */
 	Controller.prototype.setView = function (locationHash) {
@@ -59,6 +63,7 @@
 	/**
 	 * An event to fire on load. Will get all items and display them in the
 	 * todo-list
+	 * @memberOf Controller
 	 */
 	Controller.prototype.showAll = function () {
 		var self = this;
@@ -69,6 +74,7 @@
 
 	/**
 	 * Renders all active tasks (completed: false)
+	 * @memberOf Controller
 	 */
 	Controller.prototype.showActive = function () {
 		var self = this;
@@ -79,6 +85,7 @@
 
 	/**
 	 * Renders all completed tasks ({ completed: true })
+	 * @memberOf Controller
 	 */
 	Controller.prototype.showCompleted = function () {
 		var self = this;
@@ -89,6 +96,7 @@
 
 	/**
 	 * Adds a todo
+	 * @memberOf Controller
 	 * @param {string} title - new todo
 	 */
 	Controller.prototype.addItem = function (title) {
@@ -106,6 +114,7 @@
 
 	/**
 	 * Triggers the item editing mode.
+	 * @memberOf Controller
 	 * @param {number} id - Todo's ID
 	 */
 	Controller.prototype.editItem = function (id) {
@@ -117,6 +126,7 @@
 
 	/**
 	 * Finishes the item editing mode successfully.
+	 * @memberOf Controller
 	 * @param {number} id - Todo's ID
 	 * @param {string} title - Todo's title
 	 */
@@ -138,6 +148,7 @@
 
 	/**
 	 * Cancels the item editing mode.
+	 * @memberOf Controller
 	 * @param {number} id - Todo's ID
 	 */
 	Controller.prototype.editItemCancel = function (id) {
@@ -149,6 +160,7 @@
 
 	/**
 	 * Removes ID from the DOM and storage.
+	 * @memberOf Controller
 	 * @param {number} id - Todo's ID to remove
 	 */
 	Controller.prototype.removeItem = function (id) {
@@ -167,6 +179,7 @@
 
 	/**
 	 * Will remove all completed items from the DOM and storage.
+	 * @memberOf Controller
 	 */
 	Controller.prototype.removeCompletedItems = function () {
 		var self = this;
@@ -181,6 +194,7 @@
 
 	/**
 	 * Updates completed / uncompleted todos
+	 * @memberOf Controller
 	 * @param {number} id - Todo's ID
 	 * @param {boolean} completed - Check if the todo is complete or not
 	 * @param {boolean|undefined} silent - Prevent re-filtering the todo
@@ -201,6 +215,7 @@
 
 	/**
 	 * Will toggle ALL checkboxes' on/off state and completeness of models.
+	 * @memberOf Controller
 	 * @param {boolean} completed - Check if the todo is complete or not
 	 */
 	Controller.prototype.toggleAll = function (completed) {
@@ -216,6 +231,7 @@
 
 	/**
 	 * Updates the pieces of the page which change depending on the remaining number of todos.
+	 * @memberOf Controller
 	 */
 	Controller.prototype._updateCount = function () {
 		var self = this;
@@ -233,6 +249,7 @@
 
 	/**
 	 * Re-filters the todo items, based on the active route.
+	 * @memberOf Controller
 	 * @param {boolean|undefined} force - forces a re-painting of todo items.
 	 */
 	Controller.prototype._filter = function (force) {
@@ -256,6 +273,7 @@
 
 	/**
 	 * Simply updates the filter nav's selected states
+	 * @memberOf Controller
 	 * @param {string} currentPage - Current page hash ('' | 'active' | 'completed')
 	 */
 	Controller.prototype._updateFilterState = function (currentPage) {

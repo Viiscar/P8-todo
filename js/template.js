@@ -1,9 +1,11 @@
 /*jshint laxbreak:true */
+/** * @class Template */ 
 (function (window) {
 	'use strict';
 
 	/**
 	 * HTML escapes list
+	 * @memberOf Template
 	 * @type {object}
 	 */
 	var htmlEscapes = {
@@ -17,6 +19,7 @@
 
 	/**
 	 * Escapes characters
+	 * @memberOf Template
 	 * @param {string} chr -
 	 * @returns {string} - The escaped character  
 	 */
@@ -26,18 +29,21 @@
 
 	/**
 	 * RegExp
+	 * @memberOf Template
 	 * @type {object}
 	 */
 	var reUnescapedHtml = /[&<>"'`]/g;
 	
 	/**
 	 * Returns the text of the RegExp
+	 * @memberOf Template
 	 * @type {object}
 	 */
 	var reHasUnescapedHtml = new RegExp(reUnescapedHtml.source);
 
 	/**
 	 * Escapes string if there is a match
+	 * @memberOf Template
 	 * @param {string} string - String to match
 	 * @returns {string} - Escaped string, if there is a match
 	 */
@@ -49,6 +55,8 @@
 
 	/**
 	 * Sets up defaults for all the Template methods such as a default template
+	 * @name #init
+	 * @memberOf Template
 	 * @constructor
 	 */
 	function Template() {
@@ -64,6 +72,7 @@
 
 	/**
 	 * Creates an <li> HTML string and returns it for placement in your app.
+	 * @memberOf Template
 	 * @param {object} data The object containing keys you want to find in the template to replace.
 	 * @returns {string} HTML String of an <li> element
 	 * @example
@@ -100,6 +109,7 @@
 
 	/**
 	 * Displays a counter of how many to dos are left to complete
+	 * @memberOf Template
 	 * @param {number} activeTodos The number of active todos.
 	 * @returns {string} String containing the count
 	 */
@@ -111,6 +121,7 @@
 
 	/**
 	 * Updates the text within the "Clear completed" button
+	 * @memberOf Template
 	 * @param  {number} completedTodos The number of completed todos.
 	 * @returns {string} String containing the count
 	 */

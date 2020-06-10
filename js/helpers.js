@@ -1,20 +1,28 @@
 /*global NodeList */
+/** * @class Helpers */ 
 (function (window) {
 	'use strict';
 
 	/**
-	 * Get element by CSS selector
-	 * qs = querySelector()
+	 * Get element by CSS selector.
+	 * qs = querySelector().
 	 * Used in {@link View}
+	 * @memberOf Helpers
+	 * @param {string} selector - CSS class
+	 * @param {undefined|object} scope - HTML tag with its attributes
 	 */
 	window.qs = function (selector, scope) {
+		console.log(typeof(scope), scope);
 		return (scope || document).querySelector(selector);
 	};
 
 	/**
-	 * Get elements by CSS selector
-	 * qsa = querySelectorAll()
-	 * Used in {@link View}
+	 * Get elements by CSS selector.
+	 * qsa = querySelectorAll().
+	 * Used in {@link View}.
+	 * @memberOf Helpers
+	 * @param {string} selector - CSS class
+	 * @param {undefined|object} scope - HTML tag with its attributes
 	 */
 	window.qsa = function (selector, scope) {
 		return (scope || document).querySelectorAll(selector);
@@ -22,6 +30,7 @@
  
 	/**
 	 * addEventListener wrapper:
+	 * @memberOf Helpers
 	 * @param {object} target - The targeted element
 	 * @param {string} type - The event type (change, dblclick, blur, keypress, keyup, click, load, hashchange)
 	 * @param {function} callback - Callback function
@@ -34,6 +43,7 @@
 
 	/**
 	 * Attach a handler to event for all elements that match the selector
+	 * @memberOf Helpers
 	 * @param {object} target - The targeted element
 	 * @param {string} selector - The css class (.destroy, .toggle, li .edit)
 	 * @param {string} type -  The event type (blur, click)
@@ -68,6 +78,7 @@
 
 	/**
 	 * Find the element's parent with the given tag name: $parent(qs('a'), 'div');
+	 * @memberOf Helpers
 	 * @param {object} element - Element
 	 * @param {string} tagName - Element tagName
 	 * @returns {object} - Parent's element

@@ -1,5 +1,5 @@
 /*global qs, qsa, $on, $parent, $delegate */
-
+/** * @class View */
 (function (window) {
 	'use strict';
 
@@ -11,8 +11,9 @@
 	 *     Takes a todo application event and registers the handler
 	 *   - render(command, parameterObject)
 	 *     Renders the given command with the options
-	 *
 	 * Defines {@link Template} values
+	 * @name #init 
+	 * @memberOf View
 	 * @constructor
 	 * @param {object} template - 
 	 */
@@ -33,6 +34,7 @@
 
 	/**
 	 * Removes a Todo
+	 * @memberOf View
 	 * @param {number} id - item's ID to be removed 
 	 */
 	View.prototype._removeItem = function (id) {
@@ -45,6 +47,7 @@
 
 	/**
 	 * Hides completed todos
+	 * @memberOf View
 	 * @param {number} completedCount - Completed  todos number
 	 * @param {boolean} visible - True if visible
 	 */
@@ -55,6 +58,7 @@
 
 	/**
 	 * Indicates current page (All, active, completed)
+	 * @memberOf View
 	 * @param {string} currentPage - value can be '', active or completed
 	 */
 	View.prototype._setFilter = function (currentPage) {
@@ -64,6 +68,7 @@
 
 	/**
 	 * Tests if the todo is completed
+	 * @memberOf View
 	 * @param {number} id - Todo's ID
 	 * @param {boolean} completed - True if completed
 	 */
@@ -83,6 +88,7 @@
 	
 	/**
 	 * Allows todo's editing
+	 * @memberOf View
 	 * @param {number} id - Todo's ID
 	 * @param {string} title - Todo's title
 	 */
@@ -105,6 +111,7 @@
 
 	/**
 	 * Edits a todo
+	 * @memberOf View
 	 * @param {number} id - Todo's ID
 	 * @param {string} title - Edited todo's title
 	 */
@@ -127,6 +134,7 @@
 
 	/**
 	 * Renders the elements
+	 * @memberOf View
 	 * @param {string} viewCmd - Active command 
 	 * @param {object} parameter - Active parameter
 	 */
@@ -207,6 +215,7 @@
 
 	/**
 	 * Reads todo's ID and parses it
+	 * @memberOf View
 	 * @param {object} element - active todo
 	 */
 	View.prototype._itemId = function (element) {
@@ -216,6 +225,7 @@
 
 	/**
 	 * EventListner on todo's edition validation
+	 * @memberOf View
 	 * @param {function} handler - Callback 
 	 */
 	View.prototype._bindItemEditDone = function (handler) {
@@ -241,6 +251,7 @@
 
 	/**
 	 * EventListner on todo's edition cancellation
+	 * @memberOf View
 	 * @param {function} handler - Callback
 	 */
 	View.prototype._bindItemEditCancel = function (handler) {
@@ -256,7 +267,8 @@
 	};
 
 	/**
-	 * Links {@link Controller} methods with {@link View} elements 
+	 * Links {@link Controller} methods with {@link View} elements
+	 * @memberOf View
 	 * @param {string} event - Active event
 	 * @param {function} handler - Callback
 	 */

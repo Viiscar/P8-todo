@@ -1,11 +1,13 @@
-/*jshint eqeqeq:false */
+/*jshint eqeqeq:false */ 
+/** * @class Store */ 
 (function (window) {
 	'use strict';
 
 	/**
 	 * Creates a new client side storage object and will create an empty
 	 * collection if no collection already exists.
-	 *
+	 * @name #init 
+	 * @memberOf Store
 	 * @constructor
 	 * @param {string} name - The name of our DB we want to use
 	 * @param {function} callback - Our fake DB uses callbacks because in real life you probably would be making AJAX calls
@@ -28,11 +30,10 @@
 
 	/**
 	 * Finds items based on a query given as a JS object
-	 *
+	 * @memberOf Store
 	 * @param {object} query - The query to match against (i.e. {foo: 'bar'})
 	 * @param {function} callback - The callback to fire when the query has
 	 * completed running
-	 *
 	 * @example
 	 * db.find({foo: 'bar', hello: 'world'}, function (data) {
 	 *	 data will return any items that have foo: bar and
@@ -58,7 +59,7 @@
 
 	/**
 	 * Will retrieve all data from the collection
-	 *
+	 * @memberOf Store
 	 * @param {function} callback The callback to fire upon retrieving data
 	 */
 	Store.prototype.findAll = function (callback) {
@@ -69,7 +70,7 @@
 	/**
 	 * Will save the given data to the DB. If no item exists it will create a new
 	 * item, otherwise it'll simply update an existing item's properties
-	 *
+	 * @memberOf Store
 	 * @param {object} updateData - The data to save back into the DB
 	 * @param {function} callback - The callback to fire after saving
 	 * @param {number} id - An optional param to enter an ID of an item to update
@@ -115,7 +116,7 @@
 
 	/**
 	 * Will remove an item from the Store based on its ID
-	 *
+	 * @memberOf Store
 	 * @param {number} id The ID of the item you want to remove
 	 * @param {function} callback The callback to fire after saving
 	 */
@@ -135,7 +136,7 @@
 
 	/**
 	 * Will drop all storage and start fresh
-	 *
+	 * @memberOf Store
 	 * @param {function} callback The callback to fire after dropping the data
 	 */
 	Store.prototype.drop = function (callback) {

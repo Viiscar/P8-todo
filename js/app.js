@@ -1,9 +1,12 @@
 /*global app, $on */
+/** * @class App */ 
 (function () {
 	'use strict';
 
 	/**
 	 * Sets up a brand new Todo list.
+	 * @name #init 
+	 * @memberOf App
 	 * @constructor
 	 * @param {string} name - The name of the new todo list.
 	 */
@@ -17,11 +20,13 @@
 
 	/**
 	 * Creating a new Todo
+	 * @memberOf App
 	 */
 	var todo = new Todo('todos-vanillajs');
 
 	/**
 	 * Routing the url to ''|| active || completed
+	 * @memberOf App
 	 */
 	function setView() {
 		todo.controller.setView(document.location.hash);
