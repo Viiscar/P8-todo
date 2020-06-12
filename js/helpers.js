@@ -12,7 +12,6 @@
 	 * @param {undefined|object} scope - HTML tag with its attributes
 	 */
 	window.qs = function (selector, scope) {
-		console.log(typeof(scope), scope);
 		return (scope || document).querySelector(selector);
 	};
 
